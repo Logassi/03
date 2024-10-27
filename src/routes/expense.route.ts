@@ -1,28 +1,23 @@
 import { Router } from "express";
-import { GetExpenseController } from "../controllers/expense.controller";
+import {
+  GetAllExpenseController,
+  GetExpenseByIdController,
+} from "../controllers/expense.controller";
 // import { GetAllUsers, GetUserDetail } from "../controllers/user.controller";
 // import masukMiddleWare from "../middlewares/masuk.middleware";
 
 const router = Router();
 
-// Semua kena middleware
-// router.use(masukMiddleWare);
+// GET ALL EXPENSES FROM DB
+router.get("/expense", GetAllExpenseController);
 
-// GET ALL USER
-// GET http://localhost:8080/user-management/users
-// router.get("/users", GetAllUsers);
+// GET AN EXPENSE FROM DB
+router.get("/expense/:id", GetExpenseByIdController);
 
-// GET DETAIL USER
-// GET http://localhost:8080/user-management/users/3
+// POST AN EXPENSE TO DB
 
-// Below is using middleware
-// GET http://localhost:8080/user-management/users/23?user=Anjay
-// router.get("/users/:uuid", masukMiddleWare, GetUserDetail);
+// UPDATE AN EXPENSE
 
-// GET
-
-router.get("/expense", GetExpenseController);
+// DELETE AN EXPENSE
 
 export default router;
-
-//http://localhost:8080/user-management/users?user=Hesoyam
